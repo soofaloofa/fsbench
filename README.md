@@ -10,13 +10,12 @@ throughput and latency. For the first part, we use fio to simulate IO
 workloads for sequential read or random read for a specific duration then
 measure their throughput. On the latency side, we are using time to first
 byte as data points by running workloads that read one byte off of
-existing files on Mountpoint and measure the time it takes to complete
-the operation. Each of the test is defined in a separate .fio file, and
-the file name indicates what is the test case for that file, for example
-`seq_read.fio` is the benchmark for sequential read. All of fio
-configuration files can be found at path
-[fio/read/](../fio/read) and
-[fio/read_latency/](../fio/read_latency).
+existing files and measure the time it takes to complete the operation.
+Each of the test is defined in a separate .fio file, and the file name
+indicates what is the test case for that file, for example `seq_read.fio`
+is the benchmark for sequential read. All of fio configuration files can
+be found at path [fio/read/](./fio/read) and
+[fio/read_latency/](./fio/read_latency).
 
 In general, we run each IO operation for 30 seconds against a 100 GiB
 file. But there are some variants in configuration where we also want to
@@ -64,8 +63,8 @@ You can use the following steps to run the benchmark.
         fio --directory=your_local_dir --filename=your_file_name fio/read/seq_read_small.fio
         aws s3 cp your_local_dir/your_file_name s3://${S3_BUCKET_NAME}/${S3_BUCKET_TEST_PREFIX}
 
-4. Run the benchmark script for [throughput](../fsbench.sh) or
-   [latency](../fsbench_latency.sh).
+4. Run the benchmark script for [throughput](./fsbench.sh) or
+   [latency](./fsbench_latency.sh).
 
         ./fsbench.sh
 
