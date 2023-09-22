@@ -5,6 +5,10 @@ if ! command -v fio &> /dev/null; then
   echo "fio must be installed to run this benchmark"
   exit 1
 fi
+if ! command -v jq &> /dev/null; then
+  echo "jq must be installed to run this benchmark"
+  exit 1
+fi
 
 if [[ -z "${MOUNT_DIR}" ]]; then
   echo "Set MOUNT_DIR to run this benchmark"
