@@ -39,17 +39,17 @@ You can use the following steps to run the benchmark.
 1. Install dependencies and configure FUSE by running the following
    script in the repository:
 
-```bash
-make install-deps
-```
+   ```bash
+   make install-deps
+   ```
 
-or
+   or
 
-```bash
-bash install.sh \
-        --fuse-version 2 \
-        --with-fio --with-libunwind
-```
+   ```bash
+   bash install.sh \
+           --fuse-version 2 \
+           --with-fio --with-libunwind
+   ```
 
 2. Create the bench files manually. The size of the files
    must be exactly the same as the size defined in fio configuration
@@ -58,33 +58,33 @@ bash install.sh \
    mountpoint-s3, upload them to your S3 bucket using the AWS
    CLI. For example:
 
-```bash
-fio --directory=your_local_dir --filename=your_file_name fio/read/seq_read_small.fio
-```
+   ```bash
+   fio --directory=your_local_dir --filename=your_file_name fio/read/seq_read_small.fio
+   ```
 
-If you are benchmarking
-[mountpoint-s3](https://github.com/awslabs/mountpoint-s3/), upload the
-files to the S3 bucket you are testing.
+   If you are benchmarking
+   [mountpoint-s3](https://github.com/awslabs/mountpoint-s3/), upload the
+   files to the S3 bucket you are testing.
 
-```bash
-aws s3 cp your_local_dir/your_file_name s3://${S3_BUCKET_NAME}
-```
+   ```bash
+   aws s3 cp your_local_dir/your_file_name s3://${S3_BUCKET_NAME}
+   ```
 
 3. Set environment variables related to the benchmark. There are three
    required environment variables you need to set in order to run the
    benchmark.
 
-```bash
-export MOUNT_DIR=directory_name_of_mounted_filesystem
-export BENCH_FILE=bench_file_name
-export SMALL_BENCH_FILE=small_bench_file_name
-```
+   ```bash
+   export MOUNT_DIR=directory_name_of_mounted_filesystem
+   export BENCH_FILE=bench_file_name
+   export SMALL_BENCH_FILE=small_bench_file_name
+   ```
 
 4. Run the benchmark script.
 
-```bash
-./fsbench.sh
-```
+   ```bash
+   ./fsbench.sh
+   ```
 
 5. You should see the benchmark logs. The combined results will be saved
    into a JSON file at `results/output.json`.
