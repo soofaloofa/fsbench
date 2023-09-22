@@ -63,7 +63,7 @@ fio --directory=your_local_dir --filename=your_file_name fio/read/seq_read_small
 ```
 
 If you are benchmarking
-[https://github.com/awslabs/mountpoint-s3/](mountpoint-s3), upload the
+[mountpoint-s3](https://github.com/awslabs/mountpoint-s3/), upload the
 files to the S3 bucket you are testing.
 
 ```bash
